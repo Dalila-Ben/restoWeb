@@ -1,0 +1,47 @@
+<div class="banner">
+    <div class="content">
+        <h1 class="mb-5">Best food <br> chez vous. </h1>
+        <a routerLink="Menu">Decouvrez nos saveurs <i class="bi bi-arrow-right-short"></i></a>
+
+    </div>
+<!-- etapes pour commander -->
+</div>
+<div class="container mt-5 mb-5">
+    <h1 class="text-center">Comment <span class="cmd">commander ? </span> </h1>
+    <div class="row mt-5">
+       
+        <div class="col-lg-4 mt-2">
+            <div class="stepBox">
+                <h1>1</h1>
+                <p>Selectionne ton plat</p>
+            </div>
+        </div>
+        <div class="col-lg-4 mt-2">
+            <div class="stepBox">
+                <h1>2</h1>
+                <p>Complete tes informations</p>
+            </div>
+        </div>
+        <div class="col-lg-4 mt-2">
+            <div class="stepBox">
+                <h1>3</h1>
+                <p>On vous livre au plus vite</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footbox -->
+<div class="container mt-4 mb-4">
+    <h1  class="text-center">Sneak peek de ce que vous pouvez <span class="cmd"> commander</span></h1>
+    <div class="row">
+        <div class="col-lg-3 mt-3" *ngFor="let fd of platData;index as i">
+        <div class="foodbox" *ngIf="i<=3">
+            <img src="{{fd.platImg}}"/>
+            <h1>{{fd.nomPlat}}</h1>
+            <p>{{fd.prixPlat}} €</p>
+        </div>
+        </div>
+    </div>
+    <a routerLink="Menu" class="decouvrir">A Découvrir  <i class="bi bi-arrow-right-short"></i></a>
+</div>
