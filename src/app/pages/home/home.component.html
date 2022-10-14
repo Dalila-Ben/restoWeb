@@ -36,12 +36,12 @@
     <h1  class="text-center">Sneak peek de ce que vous pouvez <span class="cmd"> commander</span></h1>
     <div class="row">
         <div class="col-lg-3 mt-3" *ngFor="let fd of platData;index as i">
-        <div class="foodbox" *ngIf="i<=3">
-            <img src="{{fd.platImg}}"/>
-            <h1>{{fd.nomPlat}}</h1>
-            <p>{{fd.prixPlat}} €</p>
-        </div>
+            <div class="foodbox" *ngIf="i<=3">
+                <img src="{{fd.platImg}}"/>
+                <h1>{{fd.nomPlat}}</h1>
+                <p>{{fd.prixPlat}} €</p>
+            </div>
         </div>
     </div>
-    <a routerLink="Menu" class="decouvrir">A Découvrir  <i class="bi bi-arrow-right-short"></i></a>
+    <a routerLink="" class="decouvrir">A Découvrir  <i class="bi bi-arrow-right-short"></i></a>
 </div>

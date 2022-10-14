@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './sharepage/navbar/navbar.component';
@@ -18,6 +17,7 @@ import { DessertComponent } from './pages/dessert/dessert.component';
   declarations: [
     AppComponent,
     NavbarComponent,
+    HomeComponent,
     FooterComponent,
     AboutComponent,
     ContactComponent,
