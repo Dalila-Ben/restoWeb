@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DessertService } from 'src/app/services/dessert.service';
+import { Dessert } from 'src/app/models/dessert';
 import { OrderDetailsService } from 'src/app/services/order-details.service';
 
 @Component({
@@ -8,10 +10,30 @@ import { OrderDetailsService } from 'src/app/services/order-details.service';
 })
 export class DessertComponent implements OnInit {
 
-  constructor(private service:OrderDetailsService) { }
-  dessertData:any;
+
+
+  // dessertData:any;
+  dessert : any = [];
+
+  // private service:OrderDetailsService
+
+  constructor(private dessertService:DessertService) { }
   ngOnInit(): void {
-    this.dessertData=this.service.dessert;
+    this.getDessert();
+    // this.dessertData=this.service.dessert;
+  }
+
+  getDessert(){
+    console.log('test');
+
+    this.dessertService.getDessert().subscribe(
+      data => {
+        this.dessert.push(data);
+        // console.log(data);
+
+      }
+
+    )
   }
 
 }

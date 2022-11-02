@@ -12,6 +12,11 @@ import { OrderpageComponent } from './pages/orderpage/orderpage.component';
 import { PetitdejComponent } from './pages/petitdej/petitdej.component';
 import { PlatComponent } from './pages/plat/plat.component';
 import { DessertComponent } from './pages/dessert/dessert.component';
+import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './pages/login/login.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -24,12 +29,16 @@ import { DessertComponent } from './pages/dessert/dessert.component';
     OrderpageComponent,
     PetitdejComponent,
     PlatComponent,
-    DessertComponent
+    DessertComponent,
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

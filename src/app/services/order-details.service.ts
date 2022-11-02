@@ -116,7 +116,7 @@ export class OrderDetailsService {
       {
         id:1,
         dessertNom:"Sugar Brownie",
-        dessertDetail:"Browni avec boule de glace à la vanille",
+        dessertDetail:"Brownie avec boule de glace à la vanille",
         prixDessert:5,
         dessertImg:"https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
       },
