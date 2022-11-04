@@ -1,15 +1,18 @@
-<div class="container mt-5 mb-5">
-    <h1 class="text-center">Choisi ton <span class="cmd">Petit DEJ ! </span> </h1>
+<ng-container *ngIf="petitDejData">
+  <div class="container mt-5 mb-5">
+    <h1 class="text-center">
+      Choisi ton <span class="cmd">Petit DEJ ! </span>
+    </h1>
     <div class="row">
-
-        <div class="col-lg-4" *ngFor="let fd of petitDejData">
-
-            <div class="foodbox mt-3 mb-3" >
-                <img src="{{fd.dejImg}}">
-                <h1>{{fd.dejNom}}</h1>
-                <p>{{fd.dejDetail}}</p>
-                <p>{{fd.prixDej}} €</p>
-                <!-- <a class="cmdbtn" [routerLink]="['/Menu',fd.id]">Commander <i class="bi bi-bag"></i></a> -->
-            </div>
+      <div class="col-lg-4" *ngFor="let fd of petitDejData">
+        <div class="foodbox mt-3 mb-3">
+          <img src="{{ fd.dejImg }}" />
+          <h1>{{ fd.dejNom }}</h1>
+          <p>{{ fd.dejDetail }}</p>
+          <p>{{ fd.prixDej }} €</p>
+          <!-- <a class="cmdbtn" [routerLink]="['/Menu',fd.id]">Commander <i class="bi bi-bag"></i></a> -->
         </div>
-</div>
+      </div>
+    </div>
+  </div>
+</ng-container>

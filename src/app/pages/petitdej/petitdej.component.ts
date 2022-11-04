@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { error } from 'console';
 import { OrderDetailsService } from 'src/app/services/order-details.service';
+import { PetitDejService } from 'src/app/services/petit-dej.service';
 
 @Component({
   selector: 'app-petitdej',
@@ -7,11 +9,24 @@ import { OrderDetailsService } from 'src/app/services/order-details.service';
   styleUrls: ['./petitdej.component.css']
 })
 export class PetitdejComponent implements OnInit {
+  petitDejData : any = [];
 
-  constructor(private service:OrderDetailsService) { }
-  petitDejData:any;
+  constructor(private petiDejService:PetitDejService) { }
+
   ngOnInit(): void {
-    this.petitDejData=this.service.petitDej;
+    this.getPetitDej();
+  }
+
+  getPetitDej(){
+    this.petiDejService.getPetitDej().subscribe(
+      data => {
+        this.petitDejData= data;
+      },
+      error => {
+        console.log(error);
+
+      }
+    )
   }
 
 }

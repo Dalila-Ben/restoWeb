@@ -20,44 +20,17 @@
 
         <div class="card bg-glass">
           <div class="card-body px-4 py-5 px-md-5">
-            <form>
-              <!-- 2 column grid layout with text inputs for the first and last names -->
-              <div class="row">
-                <div class="col-md-6 mb-4">
-                  <div class="form-outline">
-                    <input type="text" id="form3Example1" class="form-control" />
-                    <label class="form-label" for="form3Example1">Prenom</label>
-                  </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                  <div class="form-outline">
-                    <input type="text" id="form3Example2" class="form-control" />
-                    <label class="form-label" for="form3Example2">Nom</label>
-                  </div>
-                </div>
+            <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off" >
+              <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" formControlName="email" autocomplete="off" class="form-control input-sm" placeholder="Email">
               </div>
-
-              <!-- Email input -->
-              <div class="form-outline mb-4">
-                <input type="email" id="form3Example3" class="form-control" />
-                <label class="form-label" for="form3Example3">Email</label>
+              <div class="form-group">
+              <label for="Password">Password</label>
+              <input type="password" name="Password" formControlName="password" autocomplete="off" class="form-control input-sm" placeholder="Password">
               </div>
-
-              <!-- Password input -->
-              <div class="form-outline mb-4">
-                <input type="password" id="form3Example4" class="form-control" />
-                <label class="form-label" for="form3Example4">Mot de passe</label>
-              </div>
-
-
-
-              <!-- Submit button -->
-              <button type="submit" class="btn btn-primary btn-block mb-4">
-                Connexion
-              </button>
-
-
-            </form>
+              <button type="submit" class="btn btn-success" >Login</button>
+              </form>
           </div>
         </div>
       </div>

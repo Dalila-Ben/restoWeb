@@ -1,17 +1,19 @@
-<div class="container mt-5 mb-5">
+<ng-container *ngIf="platData">
+  <div class="container mt-5 mb-5">
 
-    <div class="row">
-    
-        <div class="col-lg-4" *ngFor="let fd of platData">
-    
-            <div class="foodbox mt-3 mb-3" >
-                <img src="{{fd.platImg}}">
-                <h1>{{fd.nomPlat}}</h1>
-                <p>{{fd.plat}}</p>
-                <p>{{fd.prixPlat}} €</p>
-                <a class="cmdbtn" [routerLink]="['/Menu',fd.id]">Commander <i class="bi bi-bag"></i></a>
-            </div>
-        </div>
-    </div>
+      <div class="row">
 
-</div>
+          <div class="col-lg-4" *ngFor="let fd of platData">
+
+              <div class="foodbox mt-3 mb-3" >
+                  <img src="{{fd.platImg}}">
+                  <h1>{{fd.nomPlat}}</h1>
+                  <p>{{fd.plat}}</p>
+                  <p>{{fd.prixPlat}}</p>
+                  <!-- <a class="cmdbtn" [routerLink]="['/Menu',fd.id]">Commander <i class="bi bi-bag"></i></a> -->
+              </div>
+          </div>
+      </div>
+
+  </div>
+</ng-container>

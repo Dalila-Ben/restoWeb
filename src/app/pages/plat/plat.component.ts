@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { error } from 'console';
 import { OrderDetailsService } from 'src/app/services/order-details.service';
+import { PlatsService } from 'src/app/services/plats.service';
 
 @Component({
   selector: 'app-plat',
@@ -8,10 +10,29 @@ import { OrderDetailsService } from 'src/app/services/order-details.service';
 })
 export class PlatComponent implements OnInit {
 
-  constructor(private service:OrderDetailsService) { }
-  platData:any;
+  platData : any = [];
+
+  constructor(private platService:PlatsService) { }
+
   ngOnInit(): void {
-    this.platData= this.service.plats;
+    this.getPlats();
+  }
+
+  getPlats(){
+    console.log('test');
+
+    this.platService.getPlats().subscribe(
+      data => {
+        this.platData= data;
+        console.log(data);
+
+      },
+      error => {
+        console.log(error);
+
+      }
+    )
+
   }
 
 }

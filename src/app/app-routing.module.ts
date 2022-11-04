@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './pages/about/about.component';
-import { AdminComponent } from './pages/admin/admin.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { DessertComponent } from './pages/dessert/dessert.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -17,7 +16,8 @@ const routes: Routes = [
   // Une pathMatch pour rediriger le chemin vide vers le chemin de connexion
   // {path: '', pathMatch:'full', redirectTo:'Connexion'},
   {path: 'Connexion', component:LoginComponent},
-  {path: '', component:HomeComponent},
+  {path: 'Home', component:HomeComponent},
+  { path: '',   redirectTo: 'Home', pathMatch: 'full' },
   {path: 'Menu/:id', component:OrderpageComponent},
   {path: 'petitdej', component:PetitdejComponent},
   {path: 'plat', component:PlatComponent},

@@ -111,7 +111,7 @@ export class OrderDetailsService {
       },
 
     ]
-    
+
     dessert = [
       {
         id:1,
@@ -157,5 +157,5 @@ export class OrderDetailsService {
       },
 
     ]
-  
+
 }
