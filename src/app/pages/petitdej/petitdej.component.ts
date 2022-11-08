@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { error } from 'console';
-import { OrderDetailsService } from 'src/app/services/order-details.service';
 import { PetitDejService } from 'src/app/services/petit-dej.service';
 
 @Component({
@@ -21,12 +19,13 @@ export class PetitdejComponent implements OnInit {
     this.petiDejService.getPetitDej().subscribe(
       data => {
         this.petitDejData= data;
+        console.log(data);
+
       },
       error => {
         console.log(error);
 
-      }
-    )
+      });
   }
 
 }

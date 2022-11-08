@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DessertService } from './services/dessert.service';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,13 @@ import { DessertService } from './services/dessert.service';
 })
 export class AppComponent {
   title = 'restoweb';
+
+  private httpOptions={
+    'headers':new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access_control-Allow-Origin:': '*',
+    })
+  }
   constructor(){
     // private dessertService:DessertService
   }

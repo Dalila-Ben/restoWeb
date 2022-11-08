@@ -7,3 +7,4 @@ $select = $db->prepare('SELECT * FROM petitdej');
 $select->execute();
 $petitdej = $select->fetchAll();
 echo json_encode($petitdej);
+?>

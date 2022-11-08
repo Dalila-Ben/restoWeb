@@ -7,3 +7,4 @@ $select = $db->prepare('SELECT * FROM plats');
 $select->execute();
 $plats = $select->fetchAll();
 echo json_encode($plats);
+?>

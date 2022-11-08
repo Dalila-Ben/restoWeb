@@ -7,5 +7,5 @@ $select = $db->prepare('SELECT * FROM dessert');
 $select->execute();
 $dessert = $select->fetchAll();
 echo json_encode($dessert);
-
+?>
 

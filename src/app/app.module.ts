@@ -13,7 +13,7 @@ import { PetitdejComponent } from './pages/petitdej/petitdej.component';
 import { PlatComponent } from './pages/plat/plat.component';
 import { DessertComponent } from './pages/dessert/dessert.component';
 import {HttpClientModule} from '@angular/common/http';
-import { LoginComponent } from './pages/login/login.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -29,7 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PetitdejComponent,
     PlatComponent,
     DessertComponent,
-    LoginComponent
+
   ],
   imports: [
     BrowserModule,

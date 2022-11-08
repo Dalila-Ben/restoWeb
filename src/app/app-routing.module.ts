@@ -5,7 +5,6 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { DessertComponent } from './pages/dessert/dessert.component';
 import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
 import { OrderpageComponent } from './pages/orderpage/orderpage.component';
 import { PetitdejComponent } from './pages/petitdej/petitdej.component';
 import { PlatComponent } from './pages/plat/plat.component';
@@ -15,7 +14,7 @@ import { PlatComponent } from './pages/plat/plat.component';
 const routes: Routes = [
   // Une pathMatch pour rediriger le chemin vide vers le chemin de connexion
   // {path: '', pathMatch:'full', redirectTo:'Connexion'},
-  {path: 'Connexion', component:LoginComponent},
+
   {path: 'Home', component:HomeComponent},
   { path: '',   redirectTo: 'Home', pathMatch: 'full' },
   {path: 'Menu/:id', component:OrderpageComponent},
