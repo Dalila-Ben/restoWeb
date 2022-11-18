@@ -6,7 +6,7 @@
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
-              <h2 class="text-uppercase text-center mb-5">Contactez nous!</h2>
+              <h2 class="text-uppercase text-center mb-5">Inscrit toi!</h2>
 
               <form [formGroup]="inscriptionForm" (ngSubmit)="submitData()">
 
@@ -16,27 +16,30 @@
                     <span *ngIf="nom.errors?.required">*Renseignez votre nom et prenom!</span>
                     <span *ngIf="nom.errors?.pattern">*Renseignez uniquement des lettres</span>
                   </div>
-                  <label class="form-label" for="form3Example1cg">Ton nom et prenom</label>
+                  <label class="form-label" for="form3Example1cg">Your Name</label>
                 </div>
 
                 <div class="form-outline mb-4">
                   <input type="email" id="form3Example3cg" formControlName="email" class="form-control form-control-lg" />
                   <div *ngIf="email.invalid && (email.touched || email.dirty)">
-                    <span class="error" *ngIf="email.errors?.required"> Merci de renseigner votre adresse email</span>
-                    <span class="error" *ngIf="email.errors?.email"> Merci de renseigner une adresse email valide</span>
+
                   </div>
-                  <label class="form-label" for="form3Example3cg">Ton adresse email</label>
+                  <label class="form-label" for="form3Example3cg">Your Email</label>
                 </div>
 
                 <div class="form-outline mb-4">
                   <input type="password" id="form3Example4cg" formControlName="password" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example4cg">Mot de passe</label>
+                  <label class="form-label" for="form3Example4cg">Password</label>
                 </div>
 
                 <div class="d-flex justify-content-center">
                   <button type="button"
-                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" [disabled]="inscriptionForm.invalid">Envoi nous ta demande</button>
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                 </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a routerLink="/connexion"
+                    class="fw-bold text-body"><u>Login here</u></a></p>
+
               </form>
 
             </div>
@@ -46,4 +49,3 @@
     </div>
   </div>
 </section>
-

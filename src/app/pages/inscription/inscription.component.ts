@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  selector: 'app-inscription',
+  templateUrl: './inscription.component.html',
+  styleUrls: ['./inscription.component.css']
 })
-export class ContactComponent implements OnInit {
+export class InscriptionComponent implements OnInit {
+
   constructor() { }
 
   inscriptionForm: any; //formName

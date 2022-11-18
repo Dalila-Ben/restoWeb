@@ -15,6 +15,8 @@ import { DessertComponent } from './pages/dessert/dessert.component';
 import {HttpClientModule} from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InscriptionComponent } from './pages/inscription/inscription.component';
+import { ConnexionComponent } from './connexion/connexion.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PetitdejComponent,
     PlatComponent,
     DessertComponent,
+    InscriptionComponent,
+    ConnexionComponent,
 
   ],
   imports: [
