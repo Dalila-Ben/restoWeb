@@ -13,10 +13,10 @@ import { PetitdejComponent } from './pages/petitdej/petitdej.component';
 import { PlatComponent } from './pages/plat/plat.component';
 import { DessertComponent } from './pages/dessert/dessert.component';
 import {HttpClientModule} from '@angular/common/http';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+
 
 
 @NgModule({
@@ -34,6 +34,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
     InscriptionComponent,
     ConnexionComponent,
 
+
   ],
   imports: [
     BrowserModule,
@@ -41,9 +42,12 @@ import { ConnexionComponent } from './connexion/connexion.component';
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

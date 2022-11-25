@@ -1,49 +1,33 @@
-<section class="vh-100 bg-image"
-  style="background-image: url('../../../assets/img/homeimg.jpg');">
-  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-    <div class="container h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-          <div class="card" style="border-radius: 15px;">
-            <div class="card-body p-5">
-              <h2 class="text-uppercase text-center mb-5">Contactez nous!</h2>
-
-              <form [formGroup]="inscriptionForm" (ngSubmit)="submitData()">
-
-                <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" formControlName="nom" class="form-control form-control-lg" />
-                  <div *ngIf="nom.invalid && (nom.touched|| nom.dirty)">
-                    <span *ngIf="nom.errors?.required">*Renseignez votre nom et prenom!</span>
-                    <span *ngIf="nom.errors?.pattern">*Renseignez uniquement des lettres</span>
-                  </div>
-                  <label class="form-label" for="form3Example1cg">Ton nom et prenom</label>
-                </div>
-
-                <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" formControlName="email" class="form-control form-control-lg" />
-                  <div *ngIf="email.invalid && (email.touched || email.dirty)">
-                    <span class="error" *ngIf="email.errors?.required"> Merci de renseigner votre adresse email</span>
-                    <span class="error" *ngIf="email.errors?.email"> Merci de renseigner une adresse email valide</span>
-                  </div>
-                  <label class="form-label" for="form3Example3cg">Ton adresse email</label>
-                </div>
-
-                <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4cg" formControlName="password" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example4cg">Mot de passe</label>
-                </div>
-
-                <div class="d-flex justify-content-center">
-                  <button type="button"
-                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" [disabled]="inscriptionForm.invalid">Envoi nous ta demande</button>
-                </div>
-              </form>
-
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="md-col-12 text-center bg-warning">
+      <h1>Partage ta recette</h1>
     </div>
   </div>
-</section>
+  <div class="container">
+    <form [formGroup]="form" (ngSubmit)="submitImage()">
+      <div class="progress form-group" *ngIf="progress > 0">
+    <div><h2>{{msgs}}</h2></div>
 
+        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" aria-valuemin="0" aria-valuemax="100" role="progressbar" [style.width]="progress + '%'">
+
+        </div>
+      </div>
+      <div class="form-group input-group-lg">
+        <input class="form-control" placeholder="nom" formControlName="nom">
+      </div>
+
+      <div class="form-group input-group-lg">
+        <input class="form-control" placeholder="recette" formControlName>
+      </div>
+
+      <div class="form-group">
+        <input type="file" (change)="uploadFile($event)">
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-success btn-block btn-lg btn-block">Envoyer!</button>
+      </div>
+    </form>
+  </div>
+</div>
