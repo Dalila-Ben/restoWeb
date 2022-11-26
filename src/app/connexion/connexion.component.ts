@@ -21,8 +21,7 @@ export class ConnexionComponent implements OnInit {
     });
    }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {  }
 
   postData(angForm2: any){
     this.dataService.userlogin(angForm2.value.email, angForm2.value.password).pipe(first()).subscribe(
@@ -30,10 +29,9 @@ export class ConnexionComponent implements OnInit {
         const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl : '/Home';
         this.router.navigate([redirect]);
       },
-      // error => {
-      //   alert("L'identifiant ou le mot de passe sont incorrects")
-      // }
-    );
+       error => {
+       alert("L'identifiant ou le mot de passe sont incorrects")
+      });
   }
 
   get email(){return this.angForm.get('email')}

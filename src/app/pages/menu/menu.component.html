@@ -1,42 +1,19 @@
-<div class="container mt-5 mb-5">
 
-    <div class="row">
-
-        <div class="col-lg-4" *ngFor="let fd of platData">
-
-
-                <div class="foodbox mt-3 mb-3" >
-                    <a href="plat"> {{fd.plats}}
-                        <img src="{{fd.platImg}}">
-                    </a>
-                        <h1>{{fd.nomPlat}}</h1>
-                        <p>{{fd.plat}}</p>
-                        <p>{{fd.prixPlat}}</p>
-                </div>
-
+  <ng-container *ngIf="recettesData">
+    <div class="container mt-5 mb-5">
+      <h1 class="text-center">
+        Tu cherche de l'inspiration <span class="cmd">La voici ! </span>
+      </h1>
+      <div class="row">
+        <div class="col-lg-4" *ngFor="let fd of recettesData">
+          <div class="foodbox mt-3 mb-3">
+            <img src="{{ fd.image }}" />
+            <h1>{{ fd.nom }}</h1>
+            <p>{{ fd.recette }}</p>
+            <!-- <a class="cmdbtn" [routerLink]="['/Menu',fd.id]">Commander <i class="bi bi-bag"></i></a> -->
+          </div>
         </div>
+      </div>
     </div>
-    <div class="row">
+  </ng-container>
 
-        <div class="col-lg-4" *ngFor="let fd of petitDejData">
-
-            <div class="foodbox mt-3 mb-3" >
-                <img src="{{fd.dejImg}}">
-                <h1>{{fd.dejNom}}</h1>
-                <p>{{fd.dejDetail}}</p>
-                <p>{{fd.prixDej }}</p>
-            </div>
-        </div>
-
-        <div class="col-lg-4" *ngFor="let fd of dessertData">
-
-            <div class="foodbox mt-3 mb-3" >
-                <img src="{{fd.dessertImg}}">
-                <h1>{{fd.dessertNom}}</h1>
-                <p>{{fd.dessertDetail}}</p>
-                <p>{{fd.prixDessert}}</p>
-
-            </div>
-        </div>
-    </div>
-</div>

@@ -16,6 +16,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { environment } from 'src/environments/environment';
+import { MenuComponent } from './pages/menu/menu.component';
 
 
 
@@ -27,11 +29,9 @@ import { ConnexionComponent } from './connexion/connexion.component';
     FooterComponent,
     AboutComponent,
     ContactComponent,
-    OrderpageComponent,
-    PetitdejComponent,
-    PlatComponent,
     DessertComponent,
     InscriptionComponent,
+    MenuComponent,
     ConnexionComponent,
 
 
@@ -43,7 +43,6 @@ import { ConnexionComponent } from './connexion/connexion.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-
   ],
   providers: [
 

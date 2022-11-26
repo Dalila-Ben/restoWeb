@@ -1,34 +1,30 @@
-
 .foodbox {
-    padding: 10px 10px;
-    transition: all 0.3s ease-in-out;
+  padding: 10px 10px;
+  transition: all 0.3s ease-in-out;
 }
 .foodbox img {
-    width: 100%;
-    height:250px;
-    object-fit: cover;
-    border-radius: 5px;
-    
+  width: 100%;
+  height:250px;
+  object-fit: cover;
+  border-radius: 5px;
+
 }
-.foodbox h1  {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 20px;
+.foodbox h1 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
 }
-/* h1, p, a {
-    text-decoration: none;
-} */
 
 .foodbox:hover{
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 .cmdbtn {
-    
-    text-decoration: none;
-    background-color:#9FC088;
-    color:#1C6758;
-    padding: 10px 10px;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
+
+  text-decoration: none;
+  background-color:#9FC088;
+  color:#1C6758;
+  padding: 10px 10px;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
 }

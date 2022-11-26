@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { first } from 'rxjs';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-inscription',
@@ -8,23 +11,28 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class InscriptionComponent implements OnInit {
 
-  constructor() { }
 
-  inscriptionForm: any; //formName
+  form: FormGroup;
 
-  ngOnInit(): void {
-    this.inscriptionForm = new FormGroup({
-      "nom": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
-      "email": new FormControl(null, [Validators.required, Validators.email]),
-      "password": new FormControl(null,{})
-    })
+  constructor(private fb: FormBuilder, private loginService: LoginService, private router:Router) {
+    this.form = this.fb.group({
+      "nom": ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
+      "email": ['',[Validators.required, Validators.email]],
+      "password":['', Validators.required]
+    });
   }
 
-  //fonction du submit
-  submitData(){
-    console.log(this.inscriptionForm.value);
 
+  ngOnInit(): void {}
+
+  postData(form1: any){
+   this.loginService.userregistration(form1.value.nom, form1.value.email, form1.value.password).pipe(first()).subscribe(
+    data => {
+      this.router.navigate(['connexion']);
+    },
+    error => {});
   }
-  get nom() { return this.inscriptionForm.get('nom');}
-  get email() { return this.inscriptionForm.get('email');}
+  get email() { return this.form?.get('email')}
+get password() { return this.form?.get('password') }
+get name() { return this.form?.get('nom') }
 }

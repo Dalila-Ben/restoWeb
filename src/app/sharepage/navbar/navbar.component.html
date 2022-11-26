@@ -7,26 +7,28 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" routerLink="" routerLinkActive="active-link">Accueil</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Menu
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="petitdej">Petit Dèj</a></li>
-              <li><a class="dropdown-item" href="plat">Plat</a></li>
-              <li><a class="dropdown-item" href="dessert">Dessert</a></li>
-            </ul>
+            <a class="nav-link active" *ngIf="logoutbtn" routerLink="Home" routerLinkActive="active-link">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="Contact" routerLinkActive="active-link">Contact</a>
+            <a class="nav-link" routerLink="Menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Ton carnet de recettes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="loginbtn" routerLink="Contact" routerLinkActive="active-link">Charge ta recette</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="About" routerLinkActive="active-link">Notre histoire</a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" routerLink="inscription" routerLinkActive="active-link">Inscription</a>
+            <a class="nav-link"  *ngIf="loginbtn" routerLink="inscription" routerLinkActive="active-link">Connexion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  *ngIf="logoutbtn" class="btn btn-block" (click)="logout()">Deconexion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="loginbtn" routerLink="inscription" routerLinkActive="active-link">Inscription</a>
           </li>
         </ul>
       </div>

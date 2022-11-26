@@ -3,7 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  //authorisation de la connection a la bdd
+  firebase: {
+    apiKey: "AIzaSyAjsHcqu4U6sgAz-p-udzHK9jwVO6mVLuQ",
+    authDomain: "notebook-recipe.firebaseapp.com",
+    databaseURL: "https://notebook-recipe-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "notebook-recipe",
+    storageBucket: "notebook-recipe.appspot.com",
+    messagingSenderId: "160693755596",
+    appId: "1:160693755596:web:44968d683d4ff31095ac69",
+    measurementId: "G-PYJM8410HQ"
+  }
 };
 
 /*

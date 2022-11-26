@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderDetailsService } from 'src/app/services/order-details.service';
+import { RecettesService } from 'src/app/services/recettes.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,14 +8,24 @@ import { OrderDetailsService } from 'src/app/services/order-details.service';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private service:OrderDetailsService) { }
-  platData:any;
-  petitDejData:any;
-  dessertData:any;
+  recettesData : any = [];
+
+  constructor(private recettesService:RecettesService) { }
+
   ngOnInit(): void {
-    this.platData= this.service.plats;
-    this.petitDejData=this.service.petitDej;
-    this.dessertData=this.service.dessert;
+    this.getRecettes();
   }
 
-}
+  getRecettes(){
+    this.recettesService.getRecettes().subscribe(
+      data => {
+        this.recettesData= data;
+        console.log(data);
+
+      },
+      error => {
+        console.log(error);
+
+      });
+    }
+  }

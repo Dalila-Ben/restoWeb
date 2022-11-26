@@ -15,11 +15,10 @@ export class ContactComponent implements OnInit {
   form:FormGroup;
   progress:number=0;
   msgs: any;
-  imageUploadService: any;
   imgMsg: any;
 
   ngOnInit(): void {
-    this.submitImage();
+    // this.submitImage();
   }
   constructor(public fb: FormBuilder, public imageUpload: ImageUploadService) {
 
@@ -41,19 +40,21 @@ export class ContactComponent implements OnInit {
    }
 
    submitImage(){
-     this.imageUploadService.imageUpload(
+     this.imageUpload.imageUpload(
        this.form.value.nom,
        this.form.value.recette,
        this.form.value.image
      ).subscribe((event: HttpEvent<any>) => {
       switch (event.type) {
         case HttpEventType.UploadProgress:
+          var eventTotal = event.total ? event.total :0;
           if(event.total){
             this.progress = Math.round((100 / event.total) * event.loaded);
-            this.msgs = `Votre image a bien été chargée! ${this.progress}%`;
+            this.msgs = `C'est parti! ${this.progress}%`;
           }
           break;
         case HttpEventType.Response:
+          //event.body;
           if(event.body.error){
             this.imgMsg = event.body.error
           }else if(event.body.success){
@@ -69,10 +70,6 @@ export class ContactComponent implements OnInit {
 
      })
    }
-
-
-
-
 }
 
 

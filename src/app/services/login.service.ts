@@ -13,7 +13,7 @@ export class LoginService {
   constructor(private httpClient : HttpClient) { }
 
   public userlogin(nom: string, password:string) {
-  alert(nom)
+  //alert(nom)
   return this.httpClient.post<any>(this.baseUrl + '/login.php', { nom, password }).pipe(map(
   Users => {
   this.setToken(Users[0].nom);
