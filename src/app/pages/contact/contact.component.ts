@@ -1,77 +1,60 @@
 import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { throws } from 'assert';
-import { ImageUploadService } from 'src/app/services/image-upload.service';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { first } from 'rxjs';
+import { NouvellesRecettesService } from 'src/app/services/nouvelles-recettes.service';
+import { RecettesService } from 'src/app/services/recettes.service';
+
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css'],
 })
 export class ContactComponent implements OnInit {
+  nom!: string;
+  recette!: string;
 
-  title = 'ngImgUpload';
-  form:FormGroup;
-  progress:number=0;
-  msgs: any;
-  imgMsg: any;
 
   ngOnInit(): void {
-    // this.submitImage();
+
   }
-  constructor(public fb: FormBuilder, public imageUpload: ImageUploadService) {
+  constructor(
+    private fb: FormBuilder,
+    private NouvellesRecettesService: NouvellesRecettesService,
+    private router: Router
+  ) {
+    // this.form = this.fb.group({
+    //   nom: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
+    //   recette: ['', [Validators.required]]
+    // });
+  }
 
-    this.form = this.fb.group({
-      nom: [''],
-      recette: [''],
-      image: [null]
-    })
+  getNvRecettes(f: NgForm) {
+    let nom;
+    let recette;
+    nom = f.value.nom == "" ? null : f.value.nom;
+    recette = f.value.recette == "" ? null : f.value.recette;
+    this.postData(nom, recette);
+    console.log();
 
-   }
-   uploadFile(event:any){
-    const file = event.target.files ? event.target.files[0]: '';
-    //console.log(file);
-    this.form.patchValue({
-      image: file
-    });
-    this.form.get('image')?.updateValueAndValidity()
+  }
+  postData(nom: string, recette:string) {
+    this.NouvellesRecettesService
+      .getnvRecettes(
+        nom,
+        recette
+      )
+      .pipe(first())
+      .subscribe(
+        (data) => {
+          this.router.navigate(['Menu']);
+        },
+        (error) => {}
+      );
+  }
 
-   }
 
-   submitImage(){
-     this.imageUpload.imageUpload(
-       this.form.value.nom,
-       this.form.value.recette,
-       this.form.value.image
-     ).subscribe((event: HttpEvent<any>) => {
-      switch (event.type) {
-        case HttpEventType.UploadProgress:
-          var eventTotal = event.total ? event.total :0;
-          if(event.total){
-            this.progress = Math.round((100 / event.total) * event.loaded);
-            this.msgs = `C'est parti! ${this.progress}%`;
-          }
-          break;
-        case HttpEventType.Response:
-          //event.body;
-          if(event.body.error){
-            this.imgMsg = event.body.error
-          }else if(event.body.success){
-            this.imgMsg = event.body.success
-          }
 
-          setTimeout(() => {
-            this.progress = 0;
-            this.msgs='';
-          }, 1500);
-
-      }
-
-     })
-   }
 }
-
-
-
-

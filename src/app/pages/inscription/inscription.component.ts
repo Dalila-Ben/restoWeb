@@ -22,7 +22,6 @@ export class InscriptionComponent implements OnInit {
     });
   }
 
-
   ngOnInit(): void {}
 
   postData(form1: any){
@@ -33,6 +32,6 @@ export class InscriptionComponent implements OnInit {
     error => {});
   }
   get email() { return this.form?.get('email')}
-get password() { return this.form?.get('password') }
-get name() { return this.form?.get('nom') }
+  get password() { return this.form?.get('password') }
+  get name() { return this.form?.get('nom') }
 }

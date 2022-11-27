@@ -16,14 +16,16 @@ const routes: Routes = [
   // Une pathMatch pour rediriger le chemin vide vers le chemin de connexion
   // {path: '', pathMatch:'full', redirectTo:'Connexion'},
 
-  {path: 'Home', component:HomeComponent, canActivate: [AuthguardGuard]},
+  {path: 'Home', component:HomeComponent, },
   { path: '',   redirectTo: 'Home', pathMatch: 'full' },
-  {path: 'inscription', component:InscriptionComponent},
+  {path: 'inscription', component:InscriptionComponent, },
   {path: 'connexion', component:ConnexionComponent},
   {path: 'Menu', component:MenuComponent},
   {path: 'About', component:AboutComponent},
   {path: 'Contact', component:ContactComponent}
 ];
+
+// canActivate: [AuthguardGuard]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

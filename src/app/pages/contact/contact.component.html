@@ -5,32 +5,19 @@
     </div>
   </div>
   <div class="container">
-    <form [formGroup]="form" (ngSubmit)="submitImage()">
-      <div><h2>{{imgMsg}}</h2></div>
-      <div><h2>{{msgs}}</h2></div>
-      <div class="progress" *ngIf="progress > 0">
-
-
-        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" aria-valuemin="0" aria-valuemax="100" role="progressbar" [style.width]="progress + '%'">
-
-        </div>
-
-      </div>
-      <div class="form-group input-group-lg">
-        <input class="form-control" placeholder="nom" formControlName="nom">
-      </div>
+    <form #f="ngForm" (ngSubmit)="getNvRecettes(f)">
 
       <div class="form-group input-group-lg">
-        <input class="form-control" placeholder="recette" formControlName>
+        <input class="form-control" placeholder="nom" ngModel name="nom" #nom="ngModel">
       </div>
 
       <div class="form-group">
-        <input type="file" (change)="uploadFile($event)">
+        <label for="exampleFormControlTextarea3">Recette</label>
+        <textarea class="form-control" id="exampleFormControlTextarea3" rows="7" ngModel name="recette" #recette="ngModel"></textarea>
       </div>
 
       <div class="form-group">
-        <button class="btn btn-success btn-block btn-lg btn-block">Envoyer!</button>
-
+        <button class="btn btn-success btn-block btn-lg btn-block" type="submit">Envoyer!</button>
       </div>
     </form>
   </div>

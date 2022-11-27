@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" *ngIf="logoutbtn" routerLink="Home" routerLinkActive="active-link">Accueil</a>
+            <a class="nav-link active"  routerLink="Home" routerLinkActive="active-link">Accueil</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="Menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -15,20 +15,20 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="loginbtn" routerLink="Contact" routerLinkActive="active-link">Charge ta recette</a>
+            <a class="nav-link" *ngIf="tokenUser" routerLink="Contact" routerLinkActive="active-link">Charge ta recette</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="About" routerLinkActive="active-link">Notre histoire</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link"  *ngIf="loginbtn" routerLink="inscription" routerLinkActive="active-link">Connexion</a>
+          <li class="nav-item" >
+            <a class="nav-link"  *ngIf="!tokenUser" routerLink="connexion" routerLinkActive="active-link">Connexion</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link"  *ngIf="logoutbtn" class="btn btn-block" (click)="logout()">Deconexion</a>
+          <li class="nav-item" >
+            <a class="nav-link" *ngIf="tokenUser"  class="btn btn-block" (click)="logout()">Deconexion</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" *ngIf="loginbtn" routerLink="inscription" routerLinkActive="active-link">Inscription</a>
+          <li class="nav-item" >
+            <a class="nav-link" *ngIf="!tokenUser" routerLink="inscription" routerLinkActive="active-link">Inscription</a>
           </li>
         </ul>
       </div>

@@ -7,31 +7,32 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  loginbtn !: boolean;
-  logoutbtn !: boolean;
+
 
   constructor( private loginService: LoginService) {
-    loginService.getLoggedInName.subscribe(nom => this.changeName(nom));
-    if(this.loginService.isLoggedIn()){
-      console.log("loggedin");
-      this.loginbtn=false;
-      this.logoutbtn=true;
-    }
-    else {
-      this.loginbtn=true;
-      this.logoutbtn=false;
-    }
+
   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  public get tokenUser(): any {
+    return this.loginService.tokenUser;
   }
 
-  private changeName(nom: boolean): void {
-    this.logoutbtn = nom;
-    this.loginbtn = !nom;
+  ngOnInit(): void {
+    this.changeName();
   }
-  logout(){
-    this.loginService.deleteToken();
-    window.location.href = window.location.href;
+
+
+  private changeName(): void {
+    // this.logoutbtn = nom;
+    // this.loginbtn = !nom;
+    console.log(this.loginService.tokenUser);
+
+    if(this.loginService.tokenUser != undefined){
+
+    console.log(this.loginService.tokenUser);
   }
+}
+logout(){
+  this.loginService.deleteToken();
+  window.location.href = window.location.href;
+}
 }
